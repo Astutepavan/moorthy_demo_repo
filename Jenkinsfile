@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build') { 
             steps {
-                sh "ech 'starting building the artifacts"
+                sh "ech 'starting building the artifacts'"
                 sh "mvn install"
             }
         }
