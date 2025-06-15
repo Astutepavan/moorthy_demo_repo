@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('checkout') { 
             steps {
-                sh "git clone 'https://github.com/Astutepavan/moorthy_demo_repo.git' "
+                sh "checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Astutepavan/moorthy_demo_repo.git']])"
             }
         }
         stage('Build') { 
             steps {
                 sh "echo 'starting building the artifacts'"
-                sh "mvn install"
+                sh "mvn clean install"
             }
         }
         // stage('Test') { 
