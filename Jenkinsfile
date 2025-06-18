@@ -27,19 +27,15 @@ pipeline {
                 withSonarQubeEnv('sonar') {
                 sh "mvn sonar:sonar"
                 }
-
             }
         }
-        
-        // stage('Test') { 
-        //     steps {
-        //         // 
-        //     }
-        // }
-        // stage('Deploy') { 
-        //     steps {
-        //         // 
-        //     }
-        // }
+
+             stage('autodeployment') {
+            steps {
+                sshagent(['ssh_user']) {
+                 sh "scp -o StrictHostKeyChecking=no ./target/mavewebappdemo-2.0.0-SNAPSHOT.war ec2-user@52.87.157.103:/opt/apache-tomcat-9.0.105/webapps/ "
+                } 
+            }
+        } 
     }
 }
