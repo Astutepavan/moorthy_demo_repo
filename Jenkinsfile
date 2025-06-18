@@ -26,11 +26,11 @@ pipeline {
                 sh "echo 'starting sonar scanning report'"
                 withSonarQubeEnv('sonar') {
                 sh "mvn sonar:sonar"
-            }
+                }
 
-               }
             }
         }
+        
         // stage('Test') { 
         //     steps {
         //         // 
