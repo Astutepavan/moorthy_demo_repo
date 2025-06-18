@@ -12,6 +12,14 @@ pipeline {
                 sh "mvn clean install"
             }
         }
+        stage('versioning') { 
+            steps {
+                sh "echo 'starting artifact versioning'"
+                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'awsuser', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                 sh "/usr/local/bin/aws --version "
+               }
+            }
+        }
         // stage('Test') { 
         //     steps {
         //         // 
