@@ -33,7 +33,7 @@ pipeline {
              stage('autodeployment') {
             steps {
                 sshagent(['sshuser']) {
-                 sh "scp -o StrictHostKeyChecking=no ./target/mavewebappdemo-2.0.0-SNAPSHOT.war ec2-user@3.84.194.88:/opt/apache-tomcat-9.0.105/webapps/"
+                 sh "scp -o StrictHostKeyChecking=no ./target/mavewebappdemo-2.0.0-SNAPSHOT.war ec2-user@3.84.194.88:/opt/apache-tomcat-9.0.106/webapps/"
                 } 
             }
         } 
